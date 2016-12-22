@@ -48,7 +48,7 @@ group :production, :stage do
   gem 'dalli'
   gem 'dragonfly-s3_data_store'
   gem 'exception_notification'
-  gem 'fog'
+  #gem 'fog'
   gem 'therubyracer', platforms: :ruby
   gem 'whenever', require: false
 end
