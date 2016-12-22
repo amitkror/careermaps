@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.1.0'
 gem 'rails', '4.1.1'
 
 #gem 'asset_sync'
@@ -44,6 +44,7 @@ group :development do
 end
 
 group :production, :stage do
+  gem 'rails_12factor'
   gem 'daemons'
   gem 'dalli'
   gem 'dragonfly-s3_data_store'
