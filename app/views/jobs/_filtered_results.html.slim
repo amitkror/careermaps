@@ -1,0 +1,8 @@
+#results
+  h6
+    = results.count.to_i
+    span
+      |&nbsp; jobs:
+
+  - results.each do |r|
+    = render 'jobs/job', job: r, link: true

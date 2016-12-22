@@ -1,0 +1,28 @@
+.home-header #content {
+  padding-top:35px;
+  .cols-8 {
+    font-size: 18px;
+    line-height:28px;
+  }
+}
+
+
+.quiz-questions {
+  .row {
+    .question {
+      width:70%;
+    }
+    .number {
+      font-size: 25px;
+    }
+    .answers {
+      width:100%;
+      margin: 15px auto;
+      float:none;
+
+      &:last-child {
+        margin: 0 auto;
+      }
+    }
+  }
+}

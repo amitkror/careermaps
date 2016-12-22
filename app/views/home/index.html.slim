@@ -1,0 +1,20 @@
+-content_for(:body_class) do
+  | Home
+
+-content_for :quiz do
+  = render 'questions', questions: @questions
+
+-content_for :career do
+  .careers
+    p
+      | Don't worry, you can go back and change your answers.
+    = link_to 'Skip the quiz and show me all the jobs.', jobs_path
+
+h4.blued
+  | Or, pick a career to jump right in:
+
+#blocks.clearfix
+  -@careers.each do |career|
+    = link_to career_path(career.slug), class: 'block' do
+      h5== career.name
+      div== career.short_description.truncate(100)

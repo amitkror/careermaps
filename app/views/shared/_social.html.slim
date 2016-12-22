@@ -1,0 +1,13 @@
+.social
+  = render partial: 'shared/addthis'
+
+  = link_to 'http://nyccollegeline.org/', class: 'nyc', target: '_blank' do
+    | Kickstart
+    br your college career with
+    span NYC College Line!
+    .airplane
+
+- content_for :js do
+  javascript:
+    var addthis_config = { "data_track_addressbar":false};
+  script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-503676452e9c1b7a"

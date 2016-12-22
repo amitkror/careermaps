@@ -1,0 +1,17 @@
+- title "Delete #{@job.name}"
+
+.cols-8.confirm-destroy
+
+  = form_for :job, url: admin_job_path(@job), html: { method: :delete } do |f|
+
+    h3.block
+      | Are you sure you want to permanently destroy the job "#{@job.name}"?
+    br
+    p This action cannot be undone.
+
+    p
+      button.button.button-danger type="submit"
+        i.ico-trash
+        | Delete
+      |  or&nbsp;
+      = link_to "cancel", admin_jobs_path, class: 'button button-info'

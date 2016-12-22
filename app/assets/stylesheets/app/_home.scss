@@ -1,0 +1,247 @@
+.blued {
+  padding-left:2.5%;
+  margin-bottom:40px;
+}
+.home-header {
+  width: 100%;
+  background:$darkest-grey;
+  position:relative;
+  height:470px;
+  @include clearfix;
+
+
+  img {
+    position:absolute;
+    left:50%;
+    margin-left:-1400px;
+    top:0px;
+    width:2800px;
+    min-height:500px;
+    z-index:2;
+  }
+
+  #content {
+    z-index:3;
+    padding-top:85px;
+    .cols-8 {
+      padding:0;
+      margin: 0 auto;
+      line-height:32px;
+      font-size: 20px;
+    }
+  }
+  .quiz-link {
+    position:absolute;
+    bottom:0;
+    left: 50%;
+    margin-left:-70px;
+    padding:0;
+    color: $bold-red;
+    font-size: 22px;
+    z-index:3;
+    @include sans-bold;
+
+    .ico-caret-down {
+      color: $bold-red;
+      font-size: 36px;
+      position:absolute;
+      left:50%;
+      margin-left:-12px;
+      top:20px;
+      @include transition(all $transition-timing $transition-function);
+    }
+    &:hover .ico-caret-down {
+      top:25px;
+    }
+  }
+}
+.home .header-wrap .airplane-flag {
+  &:before {
+    background: image_url('hp-logo-dotted-path.svg') no-repeat;
+    position:absolute;
+    top:65px;
+    left:49px;
+    height:424px;
+    width:274px;
+    content:'';
+    z-index:3;
+  }
+}
+
+
+
+.quiz {
+  width: 100%;
+  background: $darkest-grey;
+  position:relative;
+  margin-top:-100px;
+  .errors {
+    position:absolute;
+    width:240px;
+    left:50%;
+    margin-left:-120px;
+    bottom:38px;
+    background: rgba($white, 0.8);
+    color: $bold-red;
+    font-size:15px;
+    text-align:center;
+    padding:3px;
+    display:none;
+    @include border-radius(6px);
+    @include transition(all $transition-timing $transition-function);
+    &.on {
+      z-index:99;
+      display:block;
+    }
+  }
+  &:before {
+    opacity:0.14;
+    background: image_url('quiz-airplanes.svg') no-repeat;
+    color: $light-grey;
+    position:absolute;
+    top:-200px;
+    left:50%;
+    margin-left:-550px;
+    height:925px;
+    width:1160px;
+    content:'';
+  }
+  #content {
+    padding:210px 0 0;
+  }
+  #search-jobs {
+    position:relative;
+  }
+  .button-wrap {
+    display:block;
+    cursor:pointer;
+    position:absolute;
+    height:50px;
+    left:50%;
+    margin-left:-90px;
+    bottom:-30px;
+    z-index:2;
+
+    button {
+      margin:0;
+      &.disabled {
+        background: rgba($another-grey, 0.8);
+      }
+    }
+    .red:hover {
+      color: rgba(255,255,255, 0.8);
+    }
+
+  }
+  .quiz-questions {
+    margin: 0 auto;
+    display:block;
+    color: $question-green;
+    @include sans-bold;
+    padding-bottom: 50px;
+    .row {
+      min-height:125px;
+      @include dashed-border(4px, 3px, 1px, $question-green, bottom);
+    }
+
+    &:nth-of-type(5) {
+      .row {
+        background: none;
+      }
+    }
+    .number {
+      font-size: 32px;
+      display:inline-block;
+      position:relative;
+      width:30%;
+      span {
+        position:absolute;
+        top:-10px;
+        font-size: 60px;
+      }
+    }
+    .question {
+      font-size:16px;
+      display:inline-block;
+      width:60%;
+    }
+    .answers {
+      display:inline-block;
+      float:left;
+      margin: 20px 0 20px 30%;
+      color: $white;
+      font-size: 14px;
+      width: 30%;
+      label {
+        display:inline-block;
+        input {
+          -webkit-appearance: none;
+          display:inline-block;
+          position:relative;
+          border: 1px solid $white;
+          background: $white;
+          padding:5px;
+          @include border-radius(50%);
+          &:hover:after,
+          &.checked:after {
+            content: ' ';
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            background: $bold-red;
+            text-shadow: 0px;
+            font-size: 32px;
+            margin: -3px 0 0 -3px;
+            @include border-radius(50%);
+          }
+          &:checked {
+            background: $bold-red;
+          }
+        }
+      }
+      &:last-child {
+        margin-left:60px;
+        position:relative;
+        &:before {
+          position:absolute;
+          color: $another-grey;
+          font-style: italic;
+          left:-45px;
+          content: 'or';
+        }
+      }
+      .answer-text {
+        margin: -15px 0 0 20px;
+        @include sans-regular;
+      }
+    }
+  }
+}
+
+.blue {
+  background: $pale-blue;
+  height:135px;
+  #content {
+    padding:0;
+    text-align:center;
+  }
+  .careers {
+    position:relative;
+
+    p {
+      padding-top:35px;
+      font-style:italic;
+    }
+    a {
+      margin: 15px 0 40px;
+      display:block;
+      color: $main-blue;
+      @include sans-bold;
+      &:hover {
+        color: $bold-red;
+      }
+    }
+  }
+}

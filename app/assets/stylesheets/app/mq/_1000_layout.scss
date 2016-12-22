@@ -1,0 +1,27 @@
+.wrap {
+  min-width:100%;
+}
+
+.cols {
+  .cols-2, .cols-3, .cols-4, .cols-5, .cols-6, .cols-7, .cols-8 {
+    padding: 0 2.5%;
+  }
+}
+
+nav,
+#content,
+footer {
+  width: $tablet-width;
+}
+
+#foot-wrap {
+  min-width: $mobile-width;
+}
+
+#blocks {
+  width:100%;
+  padding: 0 2.5%;
+  .block {
+    margin: 0 15px 15px 0;
+  }
+}

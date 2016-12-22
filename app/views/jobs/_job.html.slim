@@ -1,0 +1,24 @@
+.job
+  h3.job-title
+    -if link
+      == link_to job.name, '/jobs/'+job.slug
+    -else
+      == job.name
+
+  - if job.hot_industry?
+    .flag
+      i.ico-flash.ico
+      | Hot Industry
+
+  - if job.needs_certification
+    .flag
+      i.ico-bookmark.ico
+      | Needs Certification
+
+  .duties
+    strong Duties:&nbsp;
+    == job.duties.html_safe
+
+  .pay
+    strong Pay:&nbsp;
+    == job.pay.html_safe

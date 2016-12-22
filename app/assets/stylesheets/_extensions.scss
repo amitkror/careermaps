@@ -1,0 +1,13 @@
+%bold {
+  @include sans-bold;
+}
+
+%bold-upcase {
+  @include sans-bold;
+  font-size:13px;
+  text-transform:uppercase;
+}
+
+%upcase {
+  text-transform: uppercase;
+}

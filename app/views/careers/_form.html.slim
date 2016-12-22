@@ -1,0 +1,21 @@
+.tabbed-form.clearfix
+  ul
+    li
+      a.on data-target="#jobs "href="#jobs" title="Filter By Jobs" Jobs
+    li
+      a data-target="#about" href="#about" title="About the Field" About the Field
+    li
+      a data-target="#fit" href="#fit" title="A Good Fit" A Good Fit
+
+  .tabbed-field#jobs
+    = render 'careers/filter', education_levels: @education, career: @career
+
+  .tabbed-field#about
+    p
+      == @career.about_the_field.html_safe
+    = render 'careers/next_button', career: @career
+
+  .tabbed-field#fit
+    p
+      == @career.a_good_fit.html_safe
+    = render 'careers/next_button', career: @career  

@@ -1,0 +1,17 @@
+- title "Delete #{@career.name}"
+
+.cols-8.confirm-destroy
+
+  = form_for :career, url: admin_career_path(@career), html: { method: :delete } do |f|
+
+    h3.block
+      | Are you sure you want to permanently destroy the career "#{@career.name}"?
+    br
+    p This action cannot be undone.
+
+    p
+      button.button.button-danger type="submit"
+        i.ico-trash
+        | Delete
+      |  or&nbsp;
+      = link_to "cancel", admin_careers_path, class: 'button button-info'

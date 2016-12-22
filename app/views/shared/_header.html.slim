@@ -1,0 +1,31 @@
+.header-wrap
+
+  nav.main-nav
+    = link_to '#', class: 'mobile-nav' do
+      i.ico.ico-mobile
+    = link_to '', root_path, class: 'airplane-flag'
+    = link_to 'NYC Career Line', root_path, class: 'button grey'
+    ul
+      - cache ["nav-#{request.fullpath}", nav] do
+        - nav.each do |page|
+          li
+            a href="#{page.absolute_url}" class="#{on_class(page.absolute_url)}" = page.nav_title
+        li
+          = link_to 'jobs', jobs_path, class: "#{on_class(jobs_path)}"
+
+        li.has-subnav
+          span careers
+          i.ico.ico-caret-down
+          i.ico.ico-caret-right
+          ul
+            li
+              = link_to '#', class: 'back' do
+                | back
+                i.ico.ico-caret-left
+
+            - Career.all.each do |career|
+              li = link_to career.name, career.absolute_url,  class:"#{on_class(career.absolute_url)}"
+
+
+- if notice
+  p.message.notice = notice

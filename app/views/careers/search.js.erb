@@ -1,0 +1,2 @@
+$('#career-results').html('');
+$('#career-results').append("<%= j render partial: 'jobs/filtered_results', locals: {results: @results } %>");

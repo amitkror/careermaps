@@ -1,0 +1,102 @@
+nav,
+#content,
+footer {
+  width: $mobile-width;
+}
+
+.mobile-nav {
+  display:block;
+}
+
+#content {
+  padding: 40px 0;
+}
+
+.cols {
+  padding: 0 5%;
+  @include flex(column);
+  .cols-2, .cols-3, .cols-4, .cols-5, .cols-6, .cols-7, .cols-8 {
+    width: 100%;
+    padding: 0 5%;
+    &.left, &.right {
+      padding:0;
+    }
+  }
+}
+
+.cols-3.right {
+  @include flex-order(2);
+}
+.cols-7.left {
+  @include flex-order(1);
+}
+
+.button.mobile-only {
+  display:inline-block;
+  position:relative;
+  padding-left:22px;
+  .ico-caret-left {
+    position:absolute;
+    left:10px;
+    top:6px;
+    font-size:20px;
+  }
+}
+
+
+#all-results, #results {
+  .job {
+    padding: 20px 0;
+  }
+}
+
+//pages
+h2.page-title {
+  font-size:56px;
+}
+
+//job show page
+.blue-block {
+  margin: 0 auto;
+  .blue-block-content {
+    width:100%;
+    margin: 0 auto;
+  }
+}
+
+// career page
+.career-move {
+  position:relative;
+  top:auto;
+  width:100%;
+  height:100px;
+  h4 {
+    padding-top:14px;
+  }
+  span {
+    padding:0;
+  }
+  a .ico-arrow-right {
+    left: auto;
+    right:25px;
+    top:-32px;
+    padding:5px;
+  }
+}
+
+//footer
+#foot-wrap {
+  height: auto;
+}
+
+footer.cols {
+  @include flex(column);
+  height: auto;
+  section {
+    &.cols-2, &.cols-4 {
+      margin: 0 auto;
+      padding: 2.5% 5%;
+      line-height:20px;
+    }
+  }
+}

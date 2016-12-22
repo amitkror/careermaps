@@ -1,0 +1,31 @@
+-content_for :sub_header do
+
+  h2.page-title
+    | Jobs
+
+
+#content
+  .cols
+    .cols-3.left
+
+      =link_to root_path + '#quiz-link_temp', class: 'back-to-quiz mobile-only button red' do
+        i.ico.ico-caret-left
+        |Retake the Quiz!
+
+      .filter-wrap
+        = render 'jobs/filter', careers: @careers, questions: @questions
+
+    .cols-6.right
+      #all-results
+        h6
+          = @jobs.count.to_i
+
+          span
+            |&nbsp; jobs:
+
+        - @jobs.each do |job|
+            = render 'jobs/job', job: job, link: true
+
+
+      / hr
+      / = paginate @paged_jobs

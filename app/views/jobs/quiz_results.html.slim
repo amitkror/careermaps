@@ -1,0 +1,16 @@
+-content_for :sub_header do
+
+  h2.page-title Quiz Results
+  p
+    strong
+      |Tough choices pay off! &nbsp;
+    | Here's a few careers that may work for you...
+
+#content
+  .cols
+    .cols-3.left
+      .filter-wrap
+        = render 'jobs/filter', careers: @careers, questions: @questions
+
+    .cols-7.right
+      = render 'jobs/filtered_results', results: @results

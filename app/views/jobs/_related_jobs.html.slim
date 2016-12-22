@@ -1,0 +1,12 @@
+-job_careers.each do |career|
+  .blue-block-content
+    h4
+      | Jobs in &#8288;
+      = career.name
+
+      hr
+    - related_jobs.each_with_index do |job, i|
+      p
+        span == i + 1
+        span .&nbsp;
+        == link_to job.name, job.slug

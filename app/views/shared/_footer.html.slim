@@ -1,0 +1,47 @@
+#foot-wrap
+  .airplane-bg
+  footer#content.cols
+    section.cols-4.about
+      strong
+        a href="/about"  About NYC College Line
+      p
+      | NYC College Line will help you stay organized from exploration to graduation. The site was created by Graduate NYC!, CUNY, NYC DOE, and Goddard Riverside.
+    section.cols-2.contact
+      strong Contact
+      p
+      | 16 Court Street
+      p
+      | Brooklyn, NY
+      p
+      span.email
+        a href="mailto:info@nyccollegeline.org" info@nyccollegeline.org
+    section.cols-2.connect
+      strong Connect
+      p
+      a href="http://www.facebook.com/NYCCollegeLine" target="_blank" Facebook
+      p
+      a href="https://twitter.com/NYCCollegeLine" target="_blank"  Twitter
+      p
+      a href="http://nyccollegeline.tumblr.com" target="_blank"  Tumblr
+    / section.col.languages
+    /   strong Languages
+    /   p
+    /   - if Page.where("absolute_url = '/languages'").exists?
+    /     - child_nav(Page.find_by_absolute_url("/languages", select: "id, ancestry")).each do |p|
+    /       = link_to p.short_title,  p.absolute_url, class: on_class(p.absolute_url)
+    /       p
+    section.cols-2.more
+      strong More
+
+      p
+
+      span.copyright
+        | &copy; Copyright #{DateTime.now.strftime("%Y")}. All rights reserved.
+        a href="#"  Terms of Use
+        | &nbsp;&amp;
+        a href="#"  Privacy Policy
+
+      p.logo
+        = link_to "http://www.blenderbox.com", target:"_blank" do
+          | Site by&nbsp;
+          i.ico.ico-bbox-logo

@@ -1,0 +1,6 @@
+.button.red
+  i.ico-caret-right.ico
+  -if career.last_career
+    span data-href="#{Career.first.absolute_url}" Next Career: #{Career.first.name}
+  -else
+    span data-href="#{Career.next(career.id).absolute_url}" Next Career: #{Career.next(career.id).name}

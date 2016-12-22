@@ -1,0 +1,244 @@
+.mobile-only {
+  display:none;
+}
+
+//internal flag on bottom
+.flag {
+  background: $lime-green;
+  display:inline-block;
+  margin: 10px 10px 25px 0;
+  text-transform: uppercase;
+  font-size: 9px;
+  padding: 5px 10px 5px 20px;
+  line-height:20px;
+  position:relative;
+  @include sans-bold;
+  @include border-radius(8px);
+  .ico {
+    color: $dark-grey;
+    font-size:14px;
+    position:absolute;
+    left:6px;
+    top:8px;
+
+  }
+}
+
+//optional consider content
+.copy {
+  margin-bottom:25px;
+
+  p {
+    color: $main-blue;
+    font-size: 23px;
+    line-height: 30px;
+  }
+
+  p:first-of-type {
+    @extend %bold;
+    color: $turq;
+    margin-bottom:15px;
+  }
+}
+
+.job {
+  .duties, .pay {
+    display:block;
+    line-height:20px;
+    strong {
+      display:inline-block;
+      margin:0;
+      float:left;
+
+    }
+    p, strong {
+      line-height:20px;
+    }
+  }
+  .pay {
+    margin-top:35px;
+  }
+}
+
+//maybe this is totally unnecessary
+.job-title a {
+  color: $bold-red;
+  &:hover {
+    color: $dark-grey;
+  }
+}
+
+// blocks on right side
+.blue-block {
+  margin-top:-200px;
+  .social {
+    margin-top: 80px;
+  }
+  .nyc, .addthis_toolbox a {
+    @extend %lowercase;
+    width: $block-width;
+    color: $white;
+    height:60px;
+    font-size:30px;
+    margin: 10px 0 10px 28%;
+    padding-top:10px;
+    position:relative;
+    display:block;
+    @include sans-regular;
+  }
+  .addthis_toolbox {
+    a {
+      span {
+        z-index:-1;
+      }
+      .ico, span {
+        color: $white;
+        position:absolute;
+        left:20px;
+        top:15px;
+      }
+      &.fb {
+        background: $fb-blue;
+        text-align:center;
+      }
+      &.tw {
+        background: $tw-blue;
+        text-align:center;
+      }
+    }
+  }
+  .nyc {
+    text-transform:none;
+    color: $light-blue;
+    height:auto;
+    padding:30px 20px 60px;
+    line-height:32px;
+    background: $black;
+    margin-top: 80px;
+    span {
+      color: $light-green;
+    }
+    &:hover {
+      color: $main-blue;
+      span {
+        color: $lime-green;
+      }
+      &:after {
+        // a little flying airplane!!!
+        // @include transform(translate(320px,-400px));
+        @include transform(rotate(5deg));
+      }
+
+    }
+    &:after {
+      background: image-url('airplane.svg') no-repeat;
+      content: '';
+      position:absolute;
+      bottom:10px;
+      right:20px;
+      width: 100px;
+      height:50px;
+      @include transition(all ease-in-out $transition-timing);
+      @include transform(rotate(-15deg));
+    }
+  }
+}
+
+.blue-block-content {
+  width: $block-width;
+  margin: 10px 0 10px 28%;
+  height: auto;
+  background: $block-blue;
+  &:first-of-type {
+    margin-top:0;
+  }
+  h4 {
+    padding: 25px 25px 0 25px;
+  }
+  hr{
+    border-color: $hr-col;
+  }
+  p {
+    margin: 0 auto;
+    padding: 0 25px;
+    &:last-child {
+      padding-bottom:35px;
+    }
+  }
+  span {
+    color: $highlight;
+    @extend %bold-upcase;
+    font-size: 23px;
+  }
+  a {
+    color: $link-green;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-decoration:underline;
+  }
+}
+
+//filter forms
+.filter-block {
+  background: $light-grey;
+  display:block;
+  padding: 10px 20px;
+  margin-bottom:15px;
+  @include border-radius(8px);
+  &.mobile-filter {
+    display:none;
+  }
+  h3 {
+    color: $default;
+  }
+  p {
+    margin: 5px auto;
+  }
+  a {
+    display:block;
+    padding-bottom:10px;
+    color: $turq;
+    @include sans-bold;
+  }
+  ul {
+    padding:0;
+    li {
+      background:none;
+      padding-left:0;
+      position:relative;
+      span.custom-check {
+        margin:1px 5px 0 -17px;
+        float:left;
+      }
+      label {
+        // margin-left:20px;
+        display:block;
+      }
+      span.custom-select {
+        text-transform: capitalize;
+      }
+      .ico {
+        position:absolute;
+        right:60px;
+        top:6px;
+      }
+      &.answers {
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
+
+
+#career-results, #all-results, #results {
+  .job {
+    padding:30px 0;
+    border-bottom: 2px dashed $hr-col;
+    &:first-of-type {
+      padding-top: 15px;
+    }
+    &:last-child {
+      border-bottom:0;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.page {
+
+
+  h3 {
+    color: $main-blue;
+  }
+  p {
+    margin: 30px auto;
+  }
+}
+
+
+.blue-block-content {
+  ul {
+    padding:0;
+    li {
+      background-image:none;
+      margin: 0 auto 0 30px;
+      padding: 0 25px;
+      span {
+        margin:1px 5px 0 -30px;
+      }
+      &:last-child {
+        padding-bottom:35px;
+      }
+    }
+  }
+}

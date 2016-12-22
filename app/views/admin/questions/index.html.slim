@@ -1,0 +1,27 @@
+- title "Questions"
+
+header.index-header.clearfix
+  h1 Questions
+
+  p.actions
+    a href="#{new_admin_question_path}" class="button button-primary"
+      i class="ico-plus"
+      | create question
+
+table class="table table-striped table-bordered"
+  thead
+    tr
+      th = sortable_header("title", "", true)
+      th = sortable_header("status_id")
+      th = sortable_header("updated_at", "Last Updated")
+      th
+
+  tbody
+    - @questions.each do |question|
+      tr
+        td = link_to question.title, edit_admin_question_path(question)
+
+        td = l question.updated_at
+        td class="actions"
+          = link_to 'edit', edit_admin_question_path(question)
+          |  | #{link_to 'destroy', confirm_destroy_admin_question_path(question)}

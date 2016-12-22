@@ -1,0 +1,11 @@
+.blue-block
+  .blue-block-content
+    h4 Next Steps
+    hr
+    ul
+      - pages.each_with_index do |page, i|
+        li
+          span
+            == i + 1
+            | .&nbsp;
+          == link_to page.title, page.slug

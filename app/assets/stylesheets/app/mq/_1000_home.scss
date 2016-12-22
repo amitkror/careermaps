@@ -1,0 +1,30 @@
+.home-header #content {
+  padding-top: 65px;
+}
+.quiz-questions {
+  .row {
+    .number {
+      width:25%;
+    }
+    .answers {
+      margin: 20px 0 20px 25%;
+    }
+  }
+}
+
+#blocks .block {
+  h5 {
+    padding: 70px 45px 0 19px;
+  }
+  div {
+    padding: 10px 10px 0 19px;
+  }
+  &:hover {
+    h5 {
+      padding: 70px 30px 0 25px;
+    }
+    div {
+      padding: 10px 10px 20px 25px;
+    }
+  }
+}

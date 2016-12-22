@@ -1,0 +1,59 @@
+doctype html
+
+html.no-js lang="en"
+
+  = render 'shared/head'
+
+  body class="#{content_for?(:body_class) ? yield(:body_class) : ''}"
+
+    .wrap
+      = render 'shared/header'
+
+      .home-header
+        =image_tag('hp-triangle.svg')
+
+        #content
+          .cols
+            .cols-8
+              |Finding the right career is a life-long journey. With so many careers out there it can be tough to know where to begin looking. Understanding your values, interests and skills is a useful first step.
+              br
+              br Career Maps is here to help you begin your journey—by highlighting how career opportunities and jobs are organized and raising the questions and choices you will need to think about along the way.
+        =link_to '#', class: 'quiz-link cols-4', id: 'quiz-link' do
+          i.ico.ico-caret-down.red
+          |Take the Quiz!
+
+      .quiz
+        #content.cols
+           .cols-7.center = yield :quiz
+
+      .blue
+        #content
+          = yield :career
+
+      #content
+        = yield
+
+    = render 'shared/footer'
+
+    /[if lt IE 9]
+    script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+
+    | <!--[if gte IE 9]><!-->
+
+    script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"
+
+    | <!--<![endif]-->
+
+    script
+      | !window.jQuery && document.write('<script src="#{asset_path 'libs/jquery-1.11.1.min.js'}"><\/script>')
+
+    == javascript_include_tag 'application', :'data-turbolinks-eval' => false
+
+
+    /[if lt IE 9 ]
+      script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"
+      script
+        | window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
+
+    == yield :js
+    = render 'shared/toolbar' if user_signed_in?

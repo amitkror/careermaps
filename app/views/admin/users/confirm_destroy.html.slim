@@ -1,0 +1,17 @@
+- title "Delete #{@user.email}"
+
+.cols-8.confirm-destroy
+
+  = form_for :user, url: admin_user_path(@user), html: { method: :delete } do |f|
+
+    h3.block
+      | Are you sure you want to permanently destroy the user "#{@user.email}"?
+    br
+    p This action cannot be undone.
+
+    p
+      button.button.button-danger type="submit"
+        i.ico-trash
+        | Delete
+      |  or&nbsp;
+      = link_to "cancel", admin_users_path, class: 'button button-info'

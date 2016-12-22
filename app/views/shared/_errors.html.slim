@@ -1,0 +1,14 @@
+- if m.errors.any?
+
+  #errors.message.error
+
+    h6
+      | Sorry, but there&nbsp;
+      = m.errors.count > 1 ? "were" : "was"
+      | &nbsp;
+      = pluralize(m.errors.count, "error")
+
+    ul
+      - m.errors.full_messages.each do |msg|
+        li
+          = msg

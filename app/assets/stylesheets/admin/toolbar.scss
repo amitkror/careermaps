@@ -1,0 +1,90 @@
+// imports
+@import 'compass/css3/border-radius',
+        'compass/css3/transition';
+
+// vars
+$toolbar-height:40px;
+$col-hover:#2bc1dc;
+
+body.has-toolbar {
+  // padding-top:$toolbar-height;
+}
+
+.toolbar {
+  background:#ECF0F1;
+  background:rgba(236, 240, 241, 0.9);
+  display:none;
+  height:$toolbar-height;
+  left:0;
+  margin:0;
+  overflow:hidden;
+  padding-left:0;
+  position:fixed;
+  top:0;
+  width:auto;
+  z-index:9999;
+  @include border-radius(0 0 10px);
+  @include transition(width 0.15s ease-in-out);
+
+  &.close {
+    height:$toolbar-height;
+    width:$toolbar-height;
+    ul {
+      left: -100%;
+    }
+    .toggle:hover {
+      margin:0 -3px 0 3px;
+    }
+  }
+
+  a {
+    border:none;
+    color:#2C3E50;
+    display:block;
+    height:$toolbar-height;
+    line-height:$toolbar-height;
+    padding:0 15px 0;
+
+    &.on,
+    &:hover {
+      color:$col-hover;
+    }
+  }
+
+  ul {
+    position:relative;
+    left:0;
+    display:block;
+    float:left;
+    margin:0 10px 0 0;
+    @include transition(left 0.15s ease-in-out);
+
+    > li {
+      float:left;
+    }
+  }
+
+  .pull-right {
+    float:right;
+    font-size:14px;
+
+    a {
+      padding:0 5px 0;
+    }
+  }
+
+  .toggle {
+    display:block;
+    height:40px;
+    float:left;
+    font-size:20px;
+    padding:0;
+    text-align:center;
+    width:40px;
+    @include transition(all 0.3s ease-in-out);
+
+    &:hover {
+      margin:0 3px 0 -3px;
+    }
+  }
+}

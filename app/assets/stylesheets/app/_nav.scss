@@ -1,0 +1,147 @@
+.header-wrap {
+  width: 100%;
+  height: $header-height;
+  background: $main-blue;
+  margin: 0;
+  border-top: 10px solid $default;
+  .mobile-nav {
+    display:none;
+  }
+  ul {
+    margin-top: 60px;
+    float:right;
+
+    li {
+      @extend %bold-upcase;
+      display:inline-block;
+      margin-right: 25px;
+      position:relative;
+      .back {
+        display:none;
+      }
+      &:last-child {
+        margin-right:0;
+      }
+      &.has-subnav {
+        span {
+          cursor:pointer;
+          @include transition(all $transition-timing $transition-function);
+        }
+        .ico-caret-right {
+          display:none;
+        }
+        .ico-caret-down {
+          font-size:20px;
+          position:absolute;
+          right:-18px;
+          top:-3px;
+          color: $white;
+        }
+      }
+
+      a, span {
+        color:$white;
+        padding: 0 0 20px 0;
+        font-size:14px;
+        &.on {
+          color: $default;
+        }
+      }
+
+      &:hover {
+        a, span, .ico-caret-down {
+          color: $default;
+        }
+        ul {
+          display:block;
+          &:before {
+            $w: 13px;
+            border-width: 0 $w $w $w;
+            border-color: transparent transparent $pale-blue transparent;
+            top:-13px;
+            left:60px;
+            @include triangle;
+          }
+        }
+      }
+
+
+      //submenu
+      ul {
+        display:none;
+        position:absolute;
+        left:-36px;
+        top:-33px;
+        z-index:9999;
+        width: 165px;
+        border: 8px solid $main-blue;
+        @include border-radius(0 0 6px 6px);
+        li {
+          display:block;
+          width:100%;
+          a {
+            padding:10px 20px;
+            display:inline-block;
+            background: $pale-blue;
+            width:100%;
+            color: $default;
+            text-transform:capitalize;
+            &:hover {
+              background: $main-blue;
+            }
+            &.on {
+              background: $main-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .button {
+    position:absolute;
+    text-transform: capitalize;
+    top:-5px;
+    left:0;
+  }
+  .airplane-flag {
+    @include transition(all $transition-timing $transition-function);
+    background: image-url('logo-lockup.svg') no-repeat;
+    width: 230px;
+    height: 120px;
+    position:absolute;
+    top: 26px;
+    left: 100px;
+    z-index:4;
+    &:before {
+      z-index:2;
+      content:'';
+    }
+  }
+}
+
+
+.subheader {
+  width:100%;
+  z-index:-1;
+  //for anything not blocked in pee tag
+  font-size: 16px;
+  line-height: 26px;
+  background: image-url('airplane-intro-bg.svg') $light-grey no-repeat;
+  background-position:center;
+  .cols-6 {
+    width: 63.5%;
+  }
+  p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  h2 {
+    line-height: 80px;
+  }
+}
+
+.page-title {
+  margin: 20px auto 40px;
+  z-index:2;
+}

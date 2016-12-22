@@ -1,0 +1,33 @@
+- title "Careers"
+
+header.index-header.clearfix
+  h1 Careers
+
+  p.actions
+    a href="#{new_admin_career_path}" class="button button-primary"
+      i class="ico-plus"
+      | create career
+
+
+= paginate @careers
+
+table class="table table-striped table-bordered"
+  thead
+    tr
+      th = sortable_header("name", "", true)
+      th = sortable_header("status_id")
+      th = sortable_header("updated_at", "Last Updated")
+      th
+
+  tbody
+    - @careers.each do |career|
+      tr
+        td = link_to career.name, edit_admin_career_path(career)
+        td = career.status_s
+        td = l career.updated_at
+        td class="actions"
+          = link_to 'edit', edit_admin_career_path(career)
+          |  | #{link_to 'view', career_path(career), target: '_blank'}
+          |  | #{link_to 'destroy', confirm_destroy_admin_career_path(career)}
+
+= paginate @careers

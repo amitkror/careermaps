@@ -1,0 +1,17 @@
+@media (max-width:1000px) {
+  @import './app/mq/1000_layout',
+          './app/mq/1000_home',
+          './app/mq/1000_nav';
+}
+
+@media (max-width: 768px) {
+  @import './app/mq/768_layout',
+          './app/mq/768_home',
+          './app/mq/768_nav';
+}
+
+@media (max-width: 540px) {
+  @import './app/mq/540_layout',
+          './app/mq/540_home',
+          './app/mq/540_nav';
+}

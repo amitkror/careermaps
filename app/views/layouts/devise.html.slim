@@ -1,0 +1,45 @@
+doctype html
+
+html.no-js lang="en"
+
+  = render 'shared/head'
+  = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => false
+
+  body class="#{content_for?(:body_class) ? yield(:body_class) : ''}"
+
+    .wrap
+
+      - if notice
+        p.message.notice = notice
+
+      - if alert
+        p.message.alert = alert
+
+      = render 'shared/header'
+
+      #content
+        .cols.devise
+          = yield
+
+    = render 'shared/footer'
+
+    /[if lt IE 9]
+    script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+
+    | <!--[if gte IE 9]><!-->
+
+    script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"
+
+    | <!--<![endif]-->
+
+    script
+      | !window.jQuery && document.write('<script src="#{asset_path 'libs/jquery-1.11.1.min.js'}"><\/script>')
+
+    == javascript_include_tag 'application', :'data-turbolinks-eval' => false
+
+    /[if lt IE 9 ]
+      script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"
+      script
+        | window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
+
+    == yield :js

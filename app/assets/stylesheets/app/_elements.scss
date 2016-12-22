@@ -1,0 +1,92 @@
+.bold {
+  @extend %bold-upcase;
+  color: $default;
+}
+
+.button {
+  width: auto;
+  @include border-radius(0 0 6px 6px);
+  &.grey {
+    background: $default;
+  }
+  &.red {
+    background: $bold-red;
+    margin:10px auto;
+    @include border-radius(6px);
+    a {
+      padding:10px;
+    }
+  }
+}
+
+#blocks {
+  width:960px;
+  margin: 0 auto;
+  padding: 0 2.5%;
+  .block {
+    float:left;
+    position:relative;
+    display:inline-block;
+    width: 31%;
+    height:310px;
+    margin: 0 20px 20px 0;
+    background: $block-blue;
+    &:before, &:after, h5, div {
+      @include transition(all ease-in-out $transition-timing);
+    }
+
+    &:before {
+      $w: 40px;
+      border-width:$w 0 0 $w;
+      border-color: transparent transparent transparent $main-blue;
+      top:0;
+      right:0;
+      @include triangle;
+    }
+
+    &:after {
+      $w: 40px;
+      border-width:0 $w $w 0;
+      border-color: transparent $white transparent transparent;
+      top:0;
+      right:0;
+      @include triangle;
+    }
+
+    h5 {
+      padding: 50px 70px 0 30px;
+      color: $bold-red;
+    }
+    div {
+      padding: 10px 88px 30px 30px;
+      color: $default;
+      font-size:16px;
+      line-height:20px;
+      p {
+        margin: 0;
+        line-height:20px;
+      }
+    }
+
+    &:hover {
+
+      &:before, &:after {
+        $w: 60px;
+        border-width:$w 0 0 $w;
+        opacity: 1;
+        @include transform(translateX(0%), translateY(0%))
+      }
+      &:after {
+        $w: 60px;
+        border-width:0 $w $w 0;
+        border-color: transparent $white transparent transparent;
+      }
+      h5 {
+        padding:50px 50px 0 50px;
+      }
+      div {
+        padding:10px 68px 30px 50px;
+      }
+    }
+  }
+}

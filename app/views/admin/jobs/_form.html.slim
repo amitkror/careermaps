@@ -1,0 +1,46 @@
+= simple_nested_form_for [:admin, job] do |f|
+
+  = render 'shared/errors', m: job
+
+  = render 'admin/shared/actions',
+    m: job,
+    cancel_path: admin_jobs_path,
+    delete_path: job.new_record? ? nil : confirm_destroy_admin_job_path(job),
+    view_path: job.new_record? ? nil : job_path(job)
+
+
+  .field-group.filter-block
+    = f.input :name
+    = f.association :careers, collection: Career.all
+
+    ul.booleans
+      li
+        label
+          = f.check_box :hot_industry, class: 'custom-checker'
+          |Hot Industry
+      li
+        label
+          = f.check_box :needs_certification, class: 'custom-checker'
+          |Needs certification
+
+    = f.collection_select(:answer_1_id, @question_1.answers, :id, :text, {prompt: 'Question #1'}, { class: 'custom-select' })
+    = f.collection_select(:answer_2_id, @question_2.answers, :id, :text, {prompt: 'Question #2'}, { class: 'custom-select' })
+    = f.collection_select(:answer_3_id, @question_3.answers, :id, :text, {prompt: 'Question #3'}, { class: 'custom-select' })
+    = f.collection_select(:answer_4_id, @question_4.answers, :id, :text, {prompt: 'Question #4'}, { class: 'custom-select' })
+
+    = f.association :education_levels, collection: EducationLevel.all
+
+  .field-group
+
+    = f.input :duties, input_html: { class: 'tinymce' }
+    = f.input :pay, input_html: { class: 'tinymce' }
+
+    = f.input :copy, input_html: { class: 'tinymce' }
+
+
+  .field-group.filter-block
+    = f.input :status_id, input_html: { class: 'custom-select' }, as: :select, prompt: false, collection: Page::STATUSES
+    = f.input :slug,
+      required: false,
+      hint: "Leave this blank to have the url generated from the title and do not use an existing URL<br>Please only include letters, numbers, and dashes and DO NOT make this a number.".html_safe,
+      input_html: { class: 'slug' }

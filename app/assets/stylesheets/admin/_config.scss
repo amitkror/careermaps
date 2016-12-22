@@ -1,0 +1,32 @@
+// Colors
+$white:#fff;
+$col-default:#434343;
+$dark-grey: #353535;
+$main-blue:#2bc1dc;
+$col-focus: #7cebff;
+$col-highlight:$col-focus;
+$pale-blue: #c9e6eb;
+$col-hover:#0e7a8c;
+$col-link: #2c92ab;
+$col-button-hover:lighten($col-link, 10%);
+$bold-red: #eb3652;
+$lime-green: #bff322;
+$footer-grey: #b5b5b5;
+$footer-light-grey: #efefef;
+
+$footer-height:263px;
+$header-height:105px;
+$subheader-height: 344px;
+
+$input-height:28px;
+$select-height:30px;
+$select-width:134px;
+
+$width:940px;
+$tablet-width: 768px;
+$mobile-width: 100%;
+$block-width: 240px;
+
+// transitions
+$transition-timing: 0.2s;
+$transition-function: ease-in-out;

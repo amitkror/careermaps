@@ -1,0 +1,109 @@
+/* Footer */
+#foot-wrap {
+  background:$dark-grey;
+  height:$footer-height;
+  margin-top:-$footer-height;
+  min-width:$width;
+  position:relative;
+  width:100%;
+  #content {
+    padding: 40px 0;
+  }
+}
+
+footer.cols {
+  height:$footer-height;
+  // @include flex(row);
+  section {
+    border-top:1px solid #000;
+    color:$footer-light-grey;
+    display:inline-block;
+    float:left;
+    line-height:1.35;
+    padding-top:15px;
+    position:relative;
+    margin-right:2.5%;
+    &.cols-4 {
+      padding-top:15px;
+      margin-right:2.5%;
+    }
+    > strong {
+      display:block;
+      font-size:18px;
+      font-weight:500;
+      padding-bottom:15px;
+    }
+
+    a {
+      border:0;
+      color:$footer-light-grey;
+      &:hover {
+        color:$main-blue;
+      }
+    }
+  }
+
+  .tag {
+    display:block;
+    font-size:30px;
+    font-weight:700;
+    text-transform:uppercase;
+  }
+
+  .about {
+    margin-left:0;
+    em {
+      font-weight:600;
+    }
+  }
+
+  .more {
+    margin:0;
+    .logo {
+      padding-top:10px;
+    }
+    a {
+      color:$footer-grey;
+      position:relative;
+      font-weight:300;
+      .ico {
+        color: $footer-light-grey;
+        font-size:11px;
+        @include transition(all $transition-timing $transition-function);
+      }
+      &:hover {
+        color:$footer-grey;
+      }
+      &:hover .ico {
+        color: $main-blue;
+      }
+    }
+  }
+
+  .copyright {
+    color:$footer-grey;
+    font-size:11px;
+
+    a {
+      border-bottom:1px solid $footer-light-grey;
+      color:$footer-light-grey;
+      &:hover {
+        border-color:$main-blue;
+      }
+    }
+  }
+
+  .bbox {
+    font-size:11px;
+  }
+}
+
+.airplane-bg {
+  background: image-url('airplane-footer-bg.svg') no-repeat;
+  position:absolute;
+  bottom:100px;
+  left:-200px;
+  width:100%;
+  min-height:480px;
+  z-index:-1;
+}

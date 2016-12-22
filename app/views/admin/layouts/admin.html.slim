@@ -1,0 +1,61 @@
+doctype html
+
+html.no-js lang="en"
+
+  = render 'shared/head'
+  = stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => false
+
+  body class="#{content_for?(:body_class) ? yield(:body_class) : 'admin'}"
+
+    .wrap
+      .header-wrap
+
+        nav
+
+          =link_to '', admin_root_path, class: 'airplane-flag'
+
+          = link_to 'NYC Career Line', root_path, class: 'button grey'
+
+          ul
+            li
+              a href="#{admin_users_path}" class="#{on_class(admin_users_path)}" Users
+            li
+              a href="#{admin_pages_path}" class="#{on_class(admin_pages_path)}" Pages
+            li
+              a href="#{admin_careers_path}" class="#{on_class(admin_careers_path)}" Careers
+            li
+              a href="#{admin_jobs_path}" class="#{on_class(admin_jobs_path)}" Jobs
+            li
+              a href="#{admin_questions_path}" class="#{on_class(admin_questions_path)}" Questions
+            li
+              = link_to "logout", destroy_user_session_path, class: 'logout', method: 'delete'
+
+
+
+      #content
+        .cols
+          = yield
+
+
+    = render 'shared/footer'
+
+    /[if lt IE 9]
+    script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+
+    | <!--[if gte IE 9]><!-->
+
+    script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"
+
+    | <!--<![endif]-->
+
+    script
+      | !window.jQuery && document.write('<script src="#{asset_path 'libs/jquery-1.11.1.min.js'}"><\/script>')
+
+    == javascript_include_tag 'admin', :'data-turbolinks-eval' => false
+
+    /[if lt IE 9 ]
+      script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"
+      script
+        | window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
+
+    == yield :js

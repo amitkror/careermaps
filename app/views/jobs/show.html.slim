@@ -1,0 +1,24 @@
+-content_for :sub_header do
+
+  = render 'jobs/job', job: @job, link: false
+
+#content
+  .cols
+    .cols-6.left
+      -if @job.copy?
+        .copy
+          p Something to consider...
+          p == @job.copy.html_safe
+
+      - @job.careers.each do |career|
+        .button.red
+          = link_to 'Explore Careers in '+ career.name, career_path(career)
+
+    .cols-4.right
+      .blue-block
+        = render 'jobs/related_jobs', related_jobs: @related_jobs, job_careers: @job.careers unless @related_jobs.blank?
+        = render 'shared/social', job: @job
+
+- content_for :toolbar do
+  li
+    a href="#{edit_admin_job_path(@job)}" edit job

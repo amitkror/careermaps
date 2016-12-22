@@ -1,0 +1,22 @@
+.errors
+= form_tag quiz_filter_jobs_path, method: 'get', id: 'search-jobs-search' do |f|
+
+  - questions.ordered.each_with_index do |q, idx|
+    .quiz-questions
+      .row
+        .number
+          | No.&nbsp;
+          span
+          = idx + 1
+        .question
+          = q.title
+
+        - q.answers.each do |a|
+          .answers
+            label
+              = radio_button_tag "q-#{idx}", a.id, false, required: true
+              .answer-text = a.text
+
+
+  .button-wrap
+    button.red.button Get Career Options

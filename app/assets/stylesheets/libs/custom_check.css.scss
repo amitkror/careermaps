@@ -1,0 +1,94 @@
+@import './_config.scss',
+        './_mixins.scss';
+
+span.custom-checker, span.custom-check {
+  float:left;
+  height:24px;
+  margin-right:10px;
+  width:24px;
+  border: 1px solid $main-blue;
+  border-color: rgba($main-blue, 1);
+  display: inline-block;
+  position: relative;
+  // @include border-radius(50%);
+  &:after {
+    background: $main-blue;
+    content: '';
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 0;
+    @include transition(all $transition-timing $transition-function);
+  }
+
+  &:hover:after,
+  &.checked:after, {
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    width: 12px;
+  }
+
+  &.hover {
+    opacity:0.8;
+  }
+
+}
+input.custom, input.custom-check { display:none; }
+
+
+.quiz-questions {
+  span.custom-check {
+    border: 1px solid $main-blue;
+    @include border-radius(50%);
+    background: $white;
+    width:10px;
+    height:10px;
+
+    &:after {
+      background: $bold-red;
+      @include border-radius(50%);
+    }
+
+    &:hover:after,
+    &.checked:after {
+      height: 6px;
+      margin: -3px 0 0 -3px;
+      width: 6px;
+    }
+  }
+}
+
+.filter-block {
+  label {
+    margin-left:17px;
+  }
+  .custom-checker {
+    -webkit-appearance: none;
+    cursor:pointer;
+  	background-color:$white;
+  	padding: 6px;
+  	display: inline-block;
+  	position: relative;
+    appearance: none;
+    border:0;
+    margin-left:-17px;
+    margin-right:5px;
+  }
+  .custom-checker {
+  
+    &:checked:after,
+    &.checked:after {
+      position:absolute;
+      left:1px;
+      top:0;
+      font-family: 'Icons';
+      content: "\35";
+      margin:0;
+      height:0;
+      width:0;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: carrermaps
+
+production:
+  adapter: postgresql
+  host: ec2-54-163-233-89.compute-1.amazonaws.com
+  database: d2cnbug07plhss
+  user: xxfzqtzrmxvfwm
+  port: 5432
+  password: dc450d612014df73369c0e66718a39be020de784a68c0c8017fbdea0acf74cc0
+  uri: postgres://xxfzqtzrmxvfwm:dc450d612014df73369c0e66718a39be020de784a68c0c8017fbdea0acf74cc0@ec2-54-163-233-89.compute-1.amazonaws.com:5432/d2cnbug07plhss
+

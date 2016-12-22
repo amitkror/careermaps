@@ -1,0 +1,30 @@
+-content_for :sub_header do
+
+  h2.page-title
+    == @career.name
+
+#content
+  .cols
+    .cols-7.left
+      = render 'careers/form', career: @career, education: @education
+
+      #jobs
+        #career-results
+          - @jobs.each do |job|
+            = render 'jobs/job', link: true, job: job
+
+      / = paginate @jobs
+
+    .cols-3.right
+      .career-move
+        h4 I like this Career!
+        = link_to '/what-next' do
+          span What Next?
+          i.ico.ico-arrow-right
+
+
+
+
+- content_for :toolbar do
+  li
+    a href="#{edit_admin_career_path(@career)}" edit career

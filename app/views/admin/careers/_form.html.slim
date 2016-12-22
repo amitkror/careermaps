@@ -1,0 +1,28 @@
+= simple_form_for [:admin, career] do |f|
+
+  = render 'shared/errors', m: career
+
+  = render 'admin/shared/actions',
+    m: career,
+    cancel_path: admin_careers_path,
+    delete_path: career.new_record? ? nil : confirm_destroy_admin_career_path(career),
+    view_path: career.new_record? ? nil : career.slug
+
+  .cols-7
+    .field-group
+      = f.input :name
+      = f.input :status_id, input_html: {class: 'custom-select'}, as: :select, prompt: false, collection: Page::STATUSES
+
+    hr
+    .field-group
+      = f.input :short_description, hint: 'This shows up on the homepage', input_html: { class: 'tinymce' }
+      hr
+      = f.input :about_the_field, input_html: { class: 'tinymce' }
+      = f.input :a_good_fit, input_html: { class: 'tinymce' }
+
+    hr
+    .field-group
+      = f.input :slug,
+        required: false,
+        hint: "Leave this blank to have the url generated from the title and do not use an existing URL<br>Please only include letters, numbers, and dashes and DO NOT make this a number.".html_safe,
+        input_html: { class: 'slug' }

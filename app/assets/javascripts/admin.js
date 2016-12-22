@@ -1,0 +1,10 @@
+//= require jquery_ujs
+//= require jquery_nested_form
+//= require chosen-jquery
+//= require tinymce
+//= require ./libs/jquery-ui-1.10.3.custom
+//= require ./libs/jquery.tokeninput
+//= require ./libs/jquery.custom-select
+//= require ./libs/jquery.custom-check
+//= require ./libs/underscore
+//= require ./admin/admin

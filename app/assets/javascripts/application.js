@@ -1,0 +1,11 @@
+//= require jquery_ujs
+//= require jquery_nested_form
+//= require turbolinks
+//= require ./libs/request_interval
+//= require ./libs/tabs
+//= require ./libs/debounce
+//= require ./libs/jquery.custom-check
+//= require ./libs/jquery.custom-select
+//= require ./app/google_analytics
+//= require ./app/forms
+//= require ./app/application

@@ -1,0 +1,17 @@
+- if user_signed_in?
+  nav#toolbar.toolbar.clearfix
+
+    a.toggle.flip-h href="#" title="toggle admin toolbar"
+      i.ico.ico-arrow-right
+
+    ul
+      li
+        = link_to "admin", admin_root_path
+
+      = yield :toolbar
+
+    ul.pull-right
+      li
+        = link_to "logout", destroy_user_session_path, method: 'delete'
+
+  = javascript_include_tag 'admin/toolbar'

@@ -1,0 +1,19 @@
+= simple_nested_form_for [:admin, question] do |f|
+
+  = render 'shared/errors', m: question
+
+  = render 'admin/shared/actions',
+    m: question,
+    cancel_path: admin_questions_path,
+    delete_path: confirm_destroy_admin_question_path(question)
+
+  .cols-7
+    .field-group
+      = f.input :title, input_html: { class: 'tinymce' }
+
+    .filter-block
+      = f.simple_fields_for :answers do |answer|
+        = answer.text_field :text
+        = answer.input :order, collection: 1..2, input_html: {class: 'custom-select filter'}
+        = answer.link_to_remove "Remove this answer"
+        = f.link_to_add "Add a second answer", :answers

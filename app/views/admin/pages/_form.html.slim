@@ -1,0 +1,28 @@
+= simple_nested_form_for [:admin, page] do |f|
+
+  = render 'shared/errors', m: page
+
+  = render 'admin/shared/actions',
+    m: page,
+    cancel_path: admin_pages_path,
+    delete_path: (page.new_record? || page.locked) ? nil : confirm_destroy_admin_page_path(page),
+    view_path: page.new_record? ? nil : page.absolute_url
+
+  .cols-7
+    .field-group.field-group-2
+      = f.input :title
+    = f.input :status_id, input_html: {class: 'custom-select'}, as: :select, prompt: false, collection: Page::STATUSES
+
+    .field-group.field-group-2
+      = f.input :short_title, hint: 'If set, this appears above the title'
+
+    = f.input :copy_top, input_html: { class: 'tinymce' }
+    = f.input :copy, input_html: { class: 'tinymce' }
+
+    .field-group.field-group-2
+      = f.input :slug,
+        required: false,
+        hint: "Leave this blank to have the url generated from the title and do not use an existing URL<br>Please only include letters, numbers, and dashes and DO NOT make this a number.".html_safe,
+        input_html: { class: 'slug' }
+
+    = f.input :meta_description, hint: 'This is the text that appears on the search results page'

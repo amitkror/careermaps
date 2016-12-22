@@ -1,0 +1,2 @@
+$('#results').add('#all-results').html('');
+$('#results').add('#all-results').append("<%= j render partial: 'filtered_results', locals: {results: @results } %>");

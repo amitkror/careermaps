@@ -1,0 +1,94 @@
+// TODO: move to _mixins?
+@mixin account-hover {
+  border:6px solid $main-blue;
+  border-bottom:0;
+  height:26px;
+  margin:-6px -6px 0 0;
+  -moz-background-clip:padding;
+  -webkit-background-clip:padding;
+  background-clip:padding-box;
+  @include border-radius(12px 12px 0px 0px);
+}
+
+@mixin dashed-border($dashlength, $spacelength, $borderwidth, $color, $position: top) {
+  $per: percentage($dashlength / ($dashlength + $spacelength));
+  background-image: linear-gradient(to right, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
+  background-position: 0 $position;
+  background-size: ($dashlength + $spacelength) $borderwidth;
+  background-repeat: repeat-x;
+}
+/* Font stuff */
+@mixin sans-regular {
+  font-family:'Open Sans', sans-serif;
+  font-weight:400;
+}
+@mixin sans-bold {
+  font-family:'Open Sans', sans-serif;
+  font-weight:700;
+}
+
+@mixin font-face($name, $file) {
+  font-family:$name;
+  src:asset_url('#{$file}.eot');
+  src:asset_url('#{$file}.eot?#iefix') format('embedded-opentype'),
+      asset_url('#{$file}.woff') format('woff'),
+      asset_url('#{$file}.ttf') format('truetype'),
+      asset_url('#{$file}.svg##{$name}') format('svg');
+  font-weight:normal;
+  font-style:normal;
+}
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+@mixin clearfix() {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after { clear: both; }
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin triangle() {
+  border-style:solid;
+  content:' ';
+  display:block;
+  height:0px;
+  position:absolute;
+  width:0px;
+}
+
+// / Flexbox
+// -----------------
+@mixin flex($direction) {
+  // flexbox setup
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: $direction;
+          flex-flow: $direction;
+     flex-direction: $direction;
+}
+
+@mixin flex-order($order) {
+  -webkit-box-ordinal-group: $order;
+     -moz-box-ordinal-group: $order;
+             -ms-flex-order: $order;
+              -webkit-order: $order;
+                      order: $order;
+}

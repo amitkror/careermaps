@@ -1,0 +1,41 @@
+= form_tag search_jobs_path, remote: true, method: 'get', id: 'search-jobs' do |f|
+
+  .filter-block.mobile-filter
+    .dropdown
+      =select_tag "careers[]", options_from_collection_for_select(careers, "id", "name"), class: 'filtered', prompt: 'Filter by Career'
+
+  .filter-block
+    h3 FILTERS
+    p Filter by career
+
+    = link_to 'Clear all Filters',  '#', class: 'clear-boxes'
+
+  .filter-block
+    h6 Industry
+    ul
+      li 
+        = label_tag
+          = check_box_tag "hot_industry", "hot", false, class: 'custom-checker'
+          = "Hot Industry"
+      li
+        =label_tag    
+          = check_box_tag "needs_certification", "cer", false, class: 'custom-checker'
+          = "Need Certification"
+    h6 Careers
+    ul
+      -careers.each do |f|
+        li
+          = label_tag
+            = check_box_tag "careers[]", "#{f.id}", false, class: 'custom-checker'
+            = f.name
+
+
+  .filter-block
+    h6 Quiz Responses
+    ul
+      -questions.each_with_index do |q, idx|
+        li.answers
+          .dropdown
+            = select_tag "q-#{idx}", options_from_collection_for_select(q.answers, "id", "text", params["q-#{idx}"]),
+              class: 'filtered',
+              prompt: "Question # #{idx+1}"

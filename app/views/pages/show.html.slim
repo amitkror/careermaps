@@ -1,0 +1,22 @@
+- title @page.title
+- meta_description @page.meta
+
+- content_for :sub_header do
+
+  h2 = @page.title
+
+  - unless @page.copy_top.blank?
+    p == @page.copy_top
+
+- unless @page.copy.blank?
+  #content
+    .cols
+      .cols-7.left.page
+        == @page.copy
+
+      .cols-3.right
+        = render 'sidebar', pages: Page.all
+
+- content_for :toolbar do
+  li
+    a href="#{edit_admin_page_path(@page)}" edit this page

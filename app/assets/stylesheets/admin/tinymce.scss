@@ -1,0 +1,30 @@
+@import '_base';
+
+body {
+  background:#fff;
+  padding:10px;
+}
+
+body.mce-content-body {
+  font-size:15px;
+  max-width:750px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: sans-serif;
+}
+
+p {
+  line-height:1.7;
+}
+
+.header-copy {
+  font-size:18px;
+  line-height:(24px / 18px);
+  margin:0 0 40px;
+}
