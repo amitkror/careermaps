@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.1'
 
-gem 'asset_sync'
+#gem 'asset_sync'
 gem 'aws-sdk'
 gem 'compass-rails'
 gem 'chosen-rails'
@@ -20,7 +20,7 @@ gem 'tinymce-rails', git: 'git://github.com/blenderbox/tinymce-rails.git'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'factory_girl_rails'
-gem 'unf' # This is required for security by asset_sync
+#gem 'unf' # This is required for security by asset_sync
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
