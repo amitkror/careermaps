@@ -1,6 +1,6 @@
 require 'dragonfly'
 
-Dragonfly.app.configure do
+=beginDragonfly.app.configure do
   plugin :imagemagick
 
   protect_from_dos_attacks true
@@ -59,3 +59,4 @@ if defined?(ActiveRecord::Base)
   ActiveRecord::Base.extend Dragonfly::Model
   ActiveRecord::Base.extend Dragonfly::Model::Validations
 end
+=end
