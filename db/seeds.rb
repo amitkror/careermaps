@@ -6,7 +6,7 @@
 # #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 # #   Mayor.create(name: 'Emanuel', city: cities.first)
 u = FactoryGirl.create(:user,
-  email: 'development@blenderbox.com',
+  email: 'admin@blenderbox.com',
   password: 'Map All the Car33rs!',
 )
 
