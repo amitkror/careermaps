@@ -1,9 +1,9 @@
 if defined? AssetSync
   AssetSync.configure do |config|
-    config.fog_provider = Rails.application.secrets.fog_provider
-    config.aws_access_key_id = Rails.application.secrets.aws_access_key_id
-    config.aws_secret_access_key = Rails.application.secrets.aws_secret_access_key
-    config.fog_directory = Rails.application.secrets.fog_directory
+    #config.fog_provider = Rails.application.secrets.fog_provider
+    #config.aws_access_key_id = Rails.application.secrets.aws_access_key_id
+    #config.aws_secret_access_key = Rails.application.secrets.aws_secret_access_key
+    #config.fog_directory = Rails.application.secrets.fog_directory
 
     # Increase upload performance by configuring your region
     # config.fog_region = 'eu-west-1'
