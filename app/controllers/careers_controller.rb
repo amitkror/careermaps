@@ -5,6 +5,7 @@ class CareersController < ApplicationController
   end
 
   def show
+    params[:education_levels] = false
     @career = Career.from_param(params[:id])
     @education = EducationLevel.all
     @jobs = @career.jobs.ordered
