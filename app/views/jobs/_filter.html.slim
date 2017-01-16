@@ -1,5 +1,5 @@
-= form_tag search_jobs_path, remote: true, method: 'get', id: 'search-jobs' do |f|
-
+/= form_tag search_jobs_path, remote: true, method: 'get', id: 'search-jobs' do |f|
+= form_tag search_jobs_path, method: 'get', id: 'search-jobs' do |f|
   .filter-block.mobile-filter
     .dropdown
       =select_tag "careers[]", options_from_collection_for_select(careers, "id", "name"), class: 'filtered', prompt: 'Filter by Career'
@@ -15,18 +15,18 @@
     ul
       li 
         = label_tag
-          = check_box_tag "hot_industry", "hot", false, class: 'custom-checker'
+          = check_box_tag "hot_industry", "hot", params[:hot_industry] == "hot" ? true : false, class: 'custom-checker'
           = "Hot Industry"
       li
         =label_tag    
-          = check_box_tag "needs_certification", "cer", false, class: 'custom-checker'
+          = check_box_tag "needs_certification", "cer", params[:needs_certification] == "cer" ? true : false, class: 'custom-checker'
           = "Need Certification"
     h6 Careers
     ul
       -careers.each do |f|
         li
           = label_tag
-            = check_box_tag "careers[]", "#{f.id}", false, class: 'custom-checker'
+            = check_box_tag "careers[]", "#{f.id}", params[:careers].include?("#{f.id}") ? true : false, class: 'custom-checker'
             = f.name
 
 

@@ -3,6 +3,8 @@ class JobsController < ApplicationController
   before_filter :careers_and_questions
 
   def index
+    @hot_industry = false
+    params[:careers] = []
     @jobs = Job.active.ordered.all
     # @paged_jobs = Job.active.ordered.all.page(params[:page]).per(10)
   end
@@ -32,7 +34,6 @@ class JobsController < ApplicationController
   end
 
   def search
-    
     @results = Job.active.find_by_answers(
       params['q-0'],
       params['q-1'],
@@ -40,9 +41,13 @@ class JobsController < ApplicationController
       params['q-3']
     )
 
-
+    @hot_industry = false
     if params[:hot_industry].present? 
       @results = @results.where("hot_industry = ?", true)
+
+      if params[:hot_industry] == "hot"
+        @hot_industry = true
+      end
     end
 
     if params[:needs_certification].present?
