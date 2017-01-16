@@ -11,6 +11,9 @@ class CareersController < ApplicationController
   end
 
   def search
+    @career = Career.from_param(params[:id])
+    @education = EducationLevel.all
+    @jobs = @career.jobs.ordered
 
     @results = Job.active.filter_by_education(
       params[:education_levels],

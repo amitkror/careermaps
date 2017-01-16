@@ -3,25 +3,26 @@
 
   p.clear-boxes Clear All Filters
 
-  = form_tag search_careers_path, method: 'get', id: 'search-careers', remote: true do |f|
+  = form_tag search_careers_path, method: 'get', id: 'search-careers' do |f|
 
     ul
       = hidden_field_tag "career", career.id
+      = hidden_field_tag "id", params[:id]
       li
         label
           = check_box_tag 'All', false, false, class: 'custom-checker', id: 'all'
           |All
       li 
         = label_tag
-          = check_box_tag "hot_industry", "hot", false, class: 'custom-checker'
+          = check_box_tag "hot_industry", "hot", params[:hot_industry] == "hot" ? true : false, class: 'custom-checker'
           = "Hot Industry"
       li
         =label_tag    
-          = check_box_tag "needs_certification", "cer", false, class: 'custom-checker'
+          = check_box_tag "needs_certification", "cer", params[:needs_certification] == "cer" ? true : false, class: 'custom-checker'
           = "Need Certification"    
 
       - education_levels.each do |ed|
         li
           label
-            = check_box_tag "education_levels[]", ed.id, false, class: 'custom-checker'
+            = check_box_tag "education_levels[]", ed.id, params[:education_levels].include?("#{ed.id}") ? true : false, class: 'custom-checker'
             = ed.name
