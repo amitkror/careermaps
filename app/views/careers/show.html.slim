@@ -8,6 +8,20 @@
     .cols-7.left
       = render 'careers/form', career: @career, education: @education
 
+      div.myfilters
+        - if params[:hot_industry] == "hot"
+          span[style="background: #e6e6e6 none repeat scroll; padding: 5px 10px 5px 10px; margin: 5px 5px 5px 0; border-radius: 8px; display: inline-block; font-family: 'Open Sans',sans-serif; font-size: 9px; font-weight: 700; line-height: 20px; position: relative; font-size: 10px;"]
+            | Hot Industry
+            = image_tag("cross.png", class: "style_image_el", style: "padding: 0 0 0 5px; cursor: pointer", alt: "hot")
+        - if params[:needs_certification] == "cer"
+          span[style="background: #e6e6e6 none repeat scroll; padding: 5px 10px 5px 10px; margin: 5px 5px 5px 0; border-radius: 8px; display: inline-block; font-family: 'Open Sans',sans-serif; font-size: 9px; font-weight: 700; line-height: 20px; position: relative; font-size: 10px;"]
+            | Need Certification
+            = image_tag("cross.png", class: "style_image_el", style: "padding: 0 0 0 5px; cursor: pointer", alt: "cer")
+        - @education.each do |f|
+          - if params[:education_levels].include? "#{f.id}"
+            span[style="background: #e6e6e6 none repeat scroll; padding: 5px 10px 5px 10px; margin: 5px 5px 5px 0; border-radius: 8px; display: inline-block; font-family: 'Open Sans',sans-serif; font-size: 9px; font-weight: 700; line-height: 20px; position: relative; font-size: 10px;"]
+              = f.name
+              = image_tag("cross.png", class: "style_image_el", style: "padding: 0 0 0 5px; cursor: pointer", alt: f.id)    
       #jobs
         #career-results
           - @jobs.each do |job|
