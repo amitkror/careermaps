@@ -26,7 +26,7 @@
       -careers.each do |f|
         li
           = label_tag
-            = check_box_tag "careers[]", "#{f.id}", params[:careers].include?("#{f.id}") ? true : false, class: 'custom-checker'
+            = check_box_tag "careers[]", "#{f.id}", params[:careers].include?("#{f.id}") ? true : false, class: 'custom-checker', id: "careers_#{f.id}"
             = f.name
 
 

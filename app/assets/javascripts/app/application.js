@@ -31,6 +31,17 @@ var APP = (function($, undefined) {
 
   }
 
+  $(".style_image").click(function(){
+    if($(this).attr('alt') == 'hot'){
+      $("#hot_industry").click();
+    }else if($(this).attr('alt') == 'cer'){
+      $("#needs_certification").click();
+    }else{ 
+      var cid = $(this).attr('alt'); 
+      $("#careers_"+cid).click();
+    }
+  });
+
   //closes the main mobile menu on html click
   function closeMenu() {
     $('.main-nav').removeClass('on');
