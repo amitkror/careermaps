@@ -8,10 +8,10 @@
     ul
       = hidden_field_tag "career", career.id
       = hidden_field_tag "id", params[:id]
-      li
-        label
-          = check_box_tag 'All', false, false, class: 'custom-checker', id: 'all'
-          |All
+      /li
+        /label
+          /= check_box_tag 'All', false, false, class: 'custom-checker', id: 'all'
+          /|All
       li 
         = label_tag
           = check_box_tag "hot_industry", "hot", params[:hot_industry] == "hot" ? true : false, class: 'custom-checker'
