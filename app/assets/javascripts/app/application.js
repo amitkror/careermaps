@@ -39,7 +39,7 @@ var APP = (function($, undefined) {
 
   $('.custom-checker').click(function(){
     var checked_boxes = $('input.custom-checker:checkbox:checked').length;  
-    if(checked_boxes > 1){
+    if(checked_boxes > 5){
       var dateOffset1 = $(".filter_error").offset(); 
       //var finalOffset1 = dateOffset1.top-100;
       $("body,html").stop().animate({scrollTop: 500}, 900);
@@ -169,7 +169,7 @@ var APP = (function($, undefined) {
     $('select.custom-select').customSelect();
 
     var checked_boxes = $('input.custom-checker:checkbox:checked').length;  
-    if(checked_boxes > 2){
+    if(checked_boxes > 5){
       $('.filter_error').text('Please select upto 5 filter options.');
       $('body').scrollTop(300);  
       //$(this).filter(':checkbox').removeAttr(checked);
