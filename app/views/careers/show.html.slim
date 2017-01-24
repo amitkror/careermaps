@@ -21,7 +21,8 @@
           - if params[:education_levels].include? "#{f.id}"
             span[style="background: #e6e6e6 none repeat scroll; padding: 5px 10px 5px 10px; margin: 5px 5px 5px 0; border-radius: 8px; display: inline-block; font-family: 'Open Sans',sans-serif; font-size: 9px; font-weight: 700; line-height: 20px; position: relative; font-size: 10px;"]
               = f.name
-              = image_tag("cross.png", class: "style_image_el", style: "padding: 0 0 0 5px; cursor: pointer", alt: f.id)    
+              = image_tag("cross.png", class: "style_image_el", style: "padding: 0 0 0 5px; cursor: pointer", alt: f.id)   
+      div.filter_error[style="color: red; font-size: 12px; background: #e6e6e6 none repeat scroll 0 0; padding: 5px; display:none;"] 
       #jobs
         #career-results
           - @jobs.each do |job|

@@ -35,6 +35,25 @@ var APP = (function($, undefined) {
     window.location = $(e.target).attr('href');
     window.location.href = $(e.target).attr('href');
     window.location.reload(true);
+  }); 
+
+  $('.custom-checker').click(function(){
+    var checked_boxes = $('input.custom-checker:checkbox:checked').length;  
+    if(checked_boxes > 1){
+      var dateOffset1 = $(".filter_error").offset(); 
+      //var finalOffset1 = dateOffset1.top-100;
+      $("body,html").stop().animate({scrollTop: 500}, 900);
+
+      $('div.filter_error').text('Please select upto 5 filter options.').fadeIn(1000);  
+      setTimeout(function(){ 
+        $('.filter_error').fadeOut(1000); 
+      }, 3000);
+      
+      $(this).prop('checked', false);
+      return false;
+    }else{
+      $('.filter_error').text(''); 
+    }
   });
 
   $(".style_image").click(function(){
@@ -149,8 +168,20 @@ var APP = (function($, undefined) {
     $('input.custom').customCheck();
     $('select.custom-select').customSelect();
 
+    var checked_boxes = $('input.custom-checker:checkbox:checked').length;  
+    if(checked_boxes > 2){
+      $('.filter_error').text('Please select upto 5 filter options.');
+      $('body').scrollTop(300);  
+      //$(this).filter(':checkbox').removeAttr(checked);
+      //$(this).removeClass(checked);
+      return false;
+    }else{
+      $('.filter_error').text('');
+      $('#search-jobs').ajax_formify();
+    }
+
     //trying to make ajax forms work as a plugin
-    $('#search-jobs').ajax_formify();
+    //$('#search-jobs').ajax_formify();
     $('#search-careers').ajax_formify();
 
 
