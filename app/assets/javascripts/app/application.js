@@ -31,6 +31,12 @@ var APP = (function($, undefined) {
 
   }
 
+  $('a[data-reload="true"').on('click', function(e) { 
+    window.location = $(e.target).attr('href');
+    window.location.href = $(e.target).attr('href');
+    window.location.reload(true);
+  });
+
   $(".style_image").click(function(){
     if($(this).attr('alt') == 'hot'){
       $("#hot_industry").click();

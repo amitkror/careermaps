@@ -11,7 +11,7 @@
           li
             a href="#{page.absolute_url}" class="#{on_class(page.absolute_url)}" = page.nav_title
         li
-          = link_to 'jobs', jobs_path, class: "#{on_class(jobs_path)}"
+          = link_to 'jobs', jobs_path, class: "#{on_class(jobs_path)}", :data => { :reload => true }, method: :get
 
         li.has-subnav
           span careers
@@ -24,7 +24,7 @@
                 i.ico.ico-caret-left
 
             - Career.all.each do |career|
-              li = link_to career.name, career.absolute_url,  class:"#{on_class(career.absolute_url)}"
+              li = link_to career.name, career.absolute_url,  class:"#{on_class(career.absolute_url)}", :data => { :reload => true }, method: :get
 
 
 - if notice
